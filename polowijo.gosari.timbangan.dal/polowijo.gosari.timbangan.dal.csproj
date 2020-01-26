@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{27C5E45B-56F0-4210-9EE8-48BC16AF6CCD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>polowijo.gosari.timbangan.dal</RootNamespace>
+    <AssemblyName>polowijo.gosari.timbangan.dal</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CryptoHelpers, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CryptoHelpers.1.0.0\lib\CryptoHelpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="License, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LicenseEncrypt.1.0.0\lib\net45\License.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CHANGES_HISTORY.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DOCUMENT_NUMBER.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\IGenericRepository.cs" />
+    <Compile Include="IServices\ILoginServices.cs" />
+    <Compile Include="IServices\IMstKonsumenServices.cs" />
+    <Compile Include="IServices\ITrnPengirimanServices.cs" />
+    <Compile Include="IServices\ITrnSlipTimbanganServices.cs" />
+    <Compile Include="IServices\IUnitOfWork.cs" />
+    <Compile Include="Login.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MST_BAHAN_BAKU.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MST_BARANG_JADI.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MST_KEMASAN.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MST_KONSUMEN.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MST_UOM.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MST_WILAYAH.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PAGE.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\LoginServices.cs" />
+    <Compile Include="Services\MstKonsumenServices.cs" />
+    <Compile Include="Services\SqlGenericRepository.cs" />
+    <Compile Include="Services\SqlUnitOfWork.cs" />
+    <Compile Include="Services\TrnPengirimanServices.cs" />
+    <Compile Include="Services\TrnSlipTimbanganServices.cs" />
+    <Compile Include="SETTING.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SLIP_TIMBANGAN.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SO_BAHAN_BAKU.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SO_BAHAN_BAKU_DETAILS.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SO_BARANG_JADI.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SO_BARANG_JADI_DETAILS.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetRptOutstanding_Result.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_RealisasiHarian_Result.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIMBANGAN.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TIMBANGAN.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIMBANGAN.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIMBANGAN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TIMBANGAN.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TRN_DO.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRN_HASIL_PRODUKSI.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRN_MUTASI_BARANG.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRN_PEMAKAIAN_HASIL_PRODUKSI.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRN_PEMAKAIAN_HASIL_PRODUKSI_DETAILS.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRN_PENERIMAAN_BARANG.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRN_PENERIMAAN_SUPPLIER.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRN_PENERIMAAN_SUPPLIER_DETAILS.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRN_PENGIRIMAN.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRN_SPB.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRN_SURAT_PENGANTAR_BONGKAR_MUAT.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRN_SURAT_PERINTAH_PRODUKSI.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRN_SURAT_PERMINTAAN_BAHAN_BAKU.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRN_SURAT_PERMINTAAN_BAHAN_BAKU_DETAILS.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW_TOTAL_KIRIM.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WORKING_HOURS.cs">
+      <DependentUpon>TIMBANGAN.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="TIMBANGAN.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TIMBANGAN.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="TIMBANGAN.edmx.diagram">
+      <DependentUpon>TIMBANGAN.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TIMBANGAN.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TIMBANGAN.edmx</DependentUpon>
+      <LastGenOutput>TIMBANGAN.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TIMBANGAN.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TIMBANGAN.edmx</DependentUpon>
+      <LastGenOutput>TIMBANGAN.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\polowijo.gosari.timbangan.core\polowijo.gosari.timbangan.core.csproj">
+      <Project>{ba86aaee-f5ef-4caf-bd53-f53dc9885138}</Project>
+      <Name>polowijo.gosari.timbangan.core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\polowijo.gosari.timbangan.dto\polowijo.gosari.timbangan.dto.csproj">
+      <Project>{7f94551f-acc6-4d47-9654-495240c796d8}</Project>
+      <Name>polowijo.gosari.timbangan.dto</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

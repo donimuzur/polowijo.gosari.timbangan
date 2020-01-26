@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7F94551F-ACC6-4D47-9654-495240C796D8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>polowijo.gosari.timbangan.dto</RootNamespace>
+    <AssemblyName>polowijo.gosari.timbangan.dto</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChangesHistoryDto.cs" />
+    <Compile Include="LoginDto.cs" />
+    <Compile Include="MstBahanBakuDto.cs" />
+    <Compile Include="MstBarangJadiDto.cs" />
+    <Compile Include="MstKemasanDto.cs" />
+    <Compile Include="MstKonsumenDto.cs" />
+    <Compile Include="MstUomDto.cs" />
+    <Compile Include="MstWilayahDto.cs" />
+    <Compile Include="RptEkspedisiHarianDto.cs" />
+    <Compile Include="RptOutstandingDto.cs" />
+    <Compile Include="SoBarangJadiDetailsDto.cs" />
+    <Compile Include="SoBarangJadiDto.cs" />
+    <Compile Include="SuratJalanDto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrnDoDto.cs" />
+    <Compile Include="TrnHasilProduksiDto.cs" />
+    <Compile Include="TrnMutasiBarangDto.cs" />
+    <Compile Include="TrnPenerimaanBarangDto.cs" />
+    <Compile Include="TrnPengirimanDto.cs" />
+    <Compile Include="TrnSlipTimbanganDto.cs" />
+    <Compile Include="TrnSpbDto.cs" />
+    <Compile Include="TrnSuratPengantarBongkarMuatDto.cs" />
+    <Compile Include="TrnSuratPerintahProduksiDto.cs" />
+    <Compile Include="TrnSuratPermintaanBahanBakuDto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\polowijo.gosari.timbangan.core\polowijo.gosari.timbangan.core.csproj">
+      <Project>{ba86aaee-f5ef-4caf-bd53-f53dc9885138}</Project>
+      <Name>polowijo.gosari.timbangan.core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

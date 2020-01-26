@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f6c7a7df634141f7a318e88145d7339b" Name="Diagram1" ZoomLevel="78">
+        <EntityTypeShape EntityType="TIMBANGANModel.Login" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.CHANGES_HISTORY" Width="1.5" PointX="7.75" PointY="1.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.DOCUMENT_NUMBER" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.MST_BAHAN_BAKU" Width="1.5" PointX="0.75" PointY="16.125" />
+        <EntityTypeShape EntityType="TIMBANGANModel.MST_BARANG_JADI" Width="1.5" PointX="7.75" PointY="12.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.MST_KEMASAN" Width="1.5" PointX="4.75" PointY="11.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.MST_KONSUMEN" Width="1.5" PointX="15.75" PointY="10.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.MST_UOM" Width="1.5" PointX="15.75" PointY="14.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.MST_WILAYAH" Width="1.5" PointX="12.75" PointY="17.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.PAGE" Width="1.5" PointX="12.75" PointY="10.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.SETTING" Width="1.5" PointX="9.75" PointY="11.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.SO_BAHAN_BAKU" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.SO_BAHAN_BAKU_DETAILS" Width="1.5" PointX="3" PointY="16.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.SO_BARANG_JADI" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.SO_BARANG_JADI_DETAILS" Width="1.5" PointX="13" PointY="13.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.TRN_HASIL_PRODUKSI" Width="1.5" PointX="10" PointY="14.5" />
+        <EntityTypeShape EntityType="TIMBANGANModel.TRN_MUTASI_BARANG" Width="1.5" PointX="10" PointY="4.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.TRN_PEMAKAIAN_HASIL_PRODUKSI" Width="1.5" PointX="12.75" PointY="7" />
+        <EntityTypeShape EntityType="TIMBANGANModel.TRN_PEMAKAIAN_HASIL_PRODUKSI_DETAILS" Width="1.5" PointX="15" PointY="7" />
+        <EntityTypeShape EntityType="TIMBANGANModel.TRN_PENERIMAAN_BARANG" Width="1.5" PointX="3" PointY="22" />
+        <EntityTypeShape EntityType="TIMBANGANModel.TRN_PENERIMAAN_SUPPLIER" Width="1.5" PointX="12.75" PointY="2.125" />
+        <EntityTypeShape EntityType="TIMBANGANModel.TRN_PENERIMAAN_SUPPLIER_DETAILS" Width="1.5" PointX="15" PointY="2" />
+        <EntityTypeShape EntityType="TIMBANGANModel.TRN_PENGIRIMAN" Width="1.5" PointX="10" PointY="20.625" />
+        <EntityTypeShape EntityType="TIMBANGANModel.TRN_SPB" Width="1.5" PointX="17.75" PointY="4.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.TRN_SURAT_PENGANTAR_BONGKAR_MUAT" Width="1.5" PointX="17.75" PointY="14.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.TRN_SURAT_PERINTAH_PRODUKSI" Width="1.5" PointX="14.75" PointY="18.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.TRN_SURAT_PERMINTAAN_BAHAN_BAKU" Width="1.5" PointX="3.75" PointY="27.875" />
+        <EntityTypeShape EntityType="TIMBANGANModel.TRN_SURAT_PERMINTAAN_BAHAN_BAKU_DETAILS" Width="1.5" PointX="6" PointY="19" />
+        <EntityTypeShape EntityType="TIMBANGANModel.WORKING_HOURS" Width="1.5" PointX="19.75" PointY="1.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.VIEW_TOTAL_KIRIM" Width="1.5" PointX="19.75" PointY="4.75" />
+        <AssociationConnector Association="TIMBANGANModel.FK_SO_BAHAN_BAKU_DETAILS_MST_BAHAN_BAKU" />
+        <AssociationConnector Association="TIMBANGANModel.FK_TRN_PENERIMAAN_BARANG_MST_BAHAN_BAKU" />
+        <AssociationConnector Association="TIMBANGANModel.FK_TRN_SURAT_PERMINTAAN_BAHAN_BAKU_DETAILS_MST_BAHAN_BAKU" />
+        <AssociationConnector Association="TIMBANGANModel.FK_HASIL_PRODUKSI_MST_BARANG_JADI" />
+        <AssociationConnector Association="TIMBANGANModel.FK_SO_BARANG_JADI_MST_BARANG_JADI" />
+        <AssociationConnector Association="TIMBANGANModel.FK_TRN_MUTASI_BARANG_MST_BARANG_JADI" />
+        <AssociationConnector Association="TIMBANGANModel.FK_TRN_PENGIRIMAN_MST_BARANG_JADI" />
+        <AssociationConnector Association="TIMBANGANModel.FK_SO_BAHAN_BAKU_DETAILS_SO_BAHAN_BAKU_DETAILS" />
+        <AssociationConnector Association="TIMBANGANModel.FK_SO_BARANG_JADI_DETAILS_SO_BARANG_JADI" />
+        <AssociationConnector Association="TIMBANGANModel.FK_TRN_PEMAKAIAN_HASIL_PRODUKSI_DETAILS_TRN_PEMAKAIAN_HASIL_PRODUKSI" />
+        <AssociationConnector Association="TIMBANGANModel.FK_TRN_PENERIMAAN_SUPPLIER_DETAILS_TRN_PENERIMAAN_SUPPLIER" />
+        <AssociationConnector Association="TIMBANGANModel.FK_TRN_SURAT_PERMINTAAN_BAHAN_BAKU_DETAILS_TRN_SURAT_PERMINTAAN_BAHAN_BAKU" />
+        <EntityTypeShape EntityType="TIMBANGANModel.SLIP_TIMBANGAN" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.TRN_DO" Width="1.5" PointX="2.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

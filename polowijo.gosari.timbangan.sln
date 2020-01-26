@@ -5,6 +5,12 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "polowijo.gosari.timbangan", "polowijo.gosari.timbangan\polowijo.gosari.timbangan.csproj", "{FF7741B7-E213-4BDE-A984-287991881F22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "polowijo.gosari.timbangan.dal", "polowijo.gosari.timbangan.dal\polowijo.gosari.timbangan.dal.csproj", "{27C5E45B-56F0-4210-9EE8-48BC16AF6CCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "polowijo.gosari.timbangan.core", "polowijo.gosari.timbangan.core\polowijo.gosari.timbangan.core.csproj", "{BA86AAEE-F5EF-4CAF-BD53-F53DC9885138}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "polowijo.gosari.timbangan.dto", "polowijo.gosari.timbangan.dto\polowijo.gosari.timbangan.dto.csproj", "{7F94551F-ACC6-4D47-9654-495240C796D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{FF7741B7-E213-4BDE-A984-287991881F22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF7741B7-E213-4BDE-A984-287991881F22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF7741B7-E213-4BDE-A984-287991881F22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C5E45B-56F0-4210-9EE8-48BC16AF6CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C5E45B-56F0-4210-9EE8-48BC16AF6CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C5E45B-56F0-4210-9EE8-48BC16AF6CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C5E45B-56F0-4210-9EE8-48BC16AF6CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA86AAEE-F5EF-4CAF-BD53-F53DC9885138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA86AAEE-F5EF-4CAF-BD53-F53DC9885138}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA86AAEE-F5EF-4CAF-BD53-F53DC9885138}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA86AAEE-F5EF-4CAF-BD53-F53DC9885138}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F94551F-ACC6-4D47-9654-495240C796D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F94551F-ACC6-4D47-9654-495240C796D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F94551F-ACC6-4D47-9654-495240C796D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F94551F-ACC6-4D47-9654-495240C796D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

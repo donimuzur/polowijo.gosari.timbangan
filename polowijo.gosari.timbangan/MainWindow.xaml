@@ -3,10 +3,107 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:polowijo.gosari.timbangan"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        MinHeight="600" MinWidth="1000" Height="600" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" ResizeMode="CanResize" Foreground="White" Closed="Window_Closed">
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu" >
+                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="MainView">
+                <SplineThicknessKeyFrame KeyTime="0" Value="70,70,0,0" />
+                <SplineThicknessKeyFrame KeyTime="0:0:0.5" Value="200,70,0,0" />
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu" >
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="MainView">
+                <SplineThicknessKeyFrame KeyTime="0" Value="200,70,0,0" />
+                <SplineThicknessKeyFrame KeyTime="0:0:0.5" Value="70,70,0,0" />
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu" >
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"></BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu" >
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"></BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
-        
+        <Grid Height="70" VerticalAlignment="Top" Background="#FF1F8AC7">
+            <TextBlock x:Name="CaptionHeader" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial" FontSize="22">Aplikasi Timbangan</TextBlock>
+            <StackPanel VerticalAlignment="Center">
+                <materialdesign:PopupBox VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                    <StackPanel Width="150">
+                        <Button Name="Help" Content="Help" Click="Help_Click"></Button>
+                        <!--<Button Name="Quit" Content="Quit" Click="Quit_Click"></Button>-->
+                        <Button Name="SignOut" Content="Log Out" Click="SignOut_Click"></Button>
+                    </StackPanel>
+                </materialdesign:PopupBox>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="GridMenu" Width="200" HorizontalAlignment="Left" Background="#FF245E97">
+            <StackPanel>
+                <StackPanel Height="70" Background="#FF245E97">
+                    <Grid Height="150" >
+                        <Button x:Name="ButtonCloseMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left"  Click="ButtonCloseMenu_Click">
+                            <materialdesign:PackIcon Kind="ArrowLeft" Foreground="White" Width="30" ></materialdesign:PackIcon>
+                        </Button>
+                        <Button x:Name="ButtonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="left" Visibility="Collapsed" Click="ButtonOpenMenu_Click">
+                            <materialdesign:PackIcon Kind="Menu" Foreground="White" Width="30" ></materialdesign:PackIcon>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+                <ListView x:Name="Lv_Menu" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectedIndex="0" SelectionChanged="Lv_Menu_SelectionChanged" >
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Style.Resources>
+                                <!-- Foreground for Selected ListViewItem -->
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" 
+                                 Color="Black"/>
+                                <!-- Background for Selected ListViewItem -->
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
+                                 Color="Transparent"/>
+                            </Style.Resources>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListViewItem Height="60" >
+                        <StackPanel Orientation="Horizontal">
+                            <materialdesign:PackIcon Kind="ViewDashboard" Margin="15" Width="25" VerticalAlignment="Center"/>
+                            <TextBlock FontFamily="Arial" FontSize="22" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">Home (F1)</TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+                    <!--<ListViewItem Height="60" >
+                        <StackPanel Orientation="Horizontal">
+                            <materialdesign:PackIcon Kind="Database" Margin="15" Width="25" VerticalAlignment="Center"/>
+                            <TextBlock FontFamily="Arial" FontSize="22" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">Master</TextBlock>
+                        </StackPanel>
+                    </ListViewItem>-->
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialdesign:PackIcon Kind="Receipt" Margin="15" Width="25" VerticalAlignment="Center"/>
+                            <TextBlock FontFamily="Arial" FontSize="22" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">Reports</TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialdesign:PackIcon Kind="Settings" Margin="15" Width="25" VerticalAlignment="Center"/>
+                            <TextBlock FontFamily="Arial" FontSize="22" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">Setting</TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <DockPanel x:Name="MainView" Margin="200,70,0,0" Background="{x:Null}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+        </DockPanel>
     </Grid>
 </Window>
