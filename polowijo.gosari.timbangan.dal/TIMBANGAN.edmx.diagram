@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f6c7a7df634141f7a318e88145d7339b" Name="Diagram1" ZoomLevel="78">
+      <Diagram DiagramId="f6c7a7df634141f7a318e88145d7339b" Name="Diagram1" ZoomLevel="73">
         <EntityTypeShape EntityType="TIMBANGANModel.Login" Width="1.5" PointX="5.375" PointY="6.75" />
         <EntityTypeShape EntityType="TIMBANGANModel.CHANGES_HISTORY" Width="1.5" PointX="7.75" PointY="1.75" />
         <EntityTypeShape EntityType="TIMBANGANModel.DOCUMENT_NUMBER" Width="1.5" PointX="2.75" PointY="10.75" />
@@ -47,8 +47,8 @@
         <AssociationConnector Association="TIMBANGANModel.FK_TRN_PEMAKAIAN_HASIL_PRODUKSI_DETAILS_TRN_PEMAKAIAN_HASIL_PRODUKSI" />
         <AssociationConnector Association="TIMBANGANModel.FK_TRN_PENERIMAAN_SUPPLIER_DETAILS_TRN_PENERIMAAN_SUPPLIER" />
         <AssociationConnector Association="TIMBANGANModel.FK_TRN_SURAT_PERMINTAAN_BAHAN_BAKU_DETAILS_TRN_SURAT_PERMINTAAN_BAHAN_BAKU" />
-        <EntityTypeShape EntityType="TIMBANGANModel.SLIP_TIMBANGAN" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="TIMBANGANModel.TRN_DO" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TIMBANGANModel.SLIP_TIMBANGAN" Width="1.5" PointX="20.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

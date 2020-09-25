@@ -15,7 +15,7 @@ namespace polowijo.gosari.timbangan.dal.IServices
         TrnPengirimanDto GetById(object Id);
         void Save(TrnPengirimanDto Dto);
         TrnPengirimanDto Save(TrnPengirimanDto Dto, LoginDto Login);
-        void Delete(int id, string Remarks);
+        void DeleteById(object Id, LoginDto Login);
         decimal? GetAkumulasi(int Do, string NoSPB);
     }
 }

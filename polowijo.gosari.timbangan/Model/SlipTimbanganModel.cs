@@ -9,6 +9,7 @@ namespace polowijo.gosari.timbangan
     class SlipTimbanganModel
     {
         public long ID { get; set; }
+        public string NO_SURAT_JALAN { get; set; }
         public Nullable<long> NO_RECORD { get; set; }
         public System.DateTime TANGGAL { get; set; }
         public string NO_POLISI { get; set; }

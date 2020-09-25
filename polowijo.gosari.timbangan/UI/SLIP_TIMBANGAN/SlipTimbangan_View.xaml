@@ -9,6 +9,7 @@
              xmlns:wpf="http://wpfcontrols.com/"
               xmlns:System="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
+              x:Name="SlipTimbanganView"
              d:DesignHeight="500" d:DesignWidth="780" Loaded="On_Load">
     <UserControl.Resources>
         <local:MstKonsumenSuggestionProvider x:Key="MstKonsumenSuggestionProvider" />
@@ -82,8 +83,10 @@
                             </ComboBox.ItemTemplate>
                         </ComboBox>-->
                     </StackPanel>
-                    
-                    
+                    <StackPanel Orientation="Horizontal" Margin="30,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock Width="75"  Foreground="Black" Text="No Polisi" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        <TextBox x:Name="Filter_Nopol" Width="120" Foreground="Black" KeyDown="Filter_KeyDown"/>
+                    </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4">
                     <StackPanel Orientation="Horizontal" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
@@ -122,6 +125,7 @@
                 <Button x:Name="Tambah" FontSize="14" Width="90" Margin="5" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Tambah_Click">Tambah</Button>
                 <Button x:Name="Edit" FontSize="14" Width="90" Margin="5" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Edit_Click">Edit</Button>
                 <Button x:Name="Hapus" FontSize="14" Width="90" Margin="5" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Hapus_Click">Hapus</Button>
+                <Button x:Name="Print" FontSize="14" Width="90" Margin="5" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Print_Click">Print</Button>
             </StackPanel>
             <!--#endregion-->
         </Grid>

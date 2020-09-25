@@ -23,7 +23,7 @@ namespace polowijo.gosari.timbangan.Reports {
         
         public override string ResourceName {
             get {
-                return "ReportSuratJalan3-Layout.rpt";
+                return "ReportSuratJalan3_Layout.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace polowijo.gosari.timbangan.Reports {
         
         public override string FullResourceName {
             get {
-                return "polowijo.gosari.timbangan.Reports.ReportSuratJalan3-Layout.rpt";
+                return "polowijo.gosari.timbangan.Reports.ReportSuratJalan3_Layout.rpt";
             }
             set {
                 // Do nothing

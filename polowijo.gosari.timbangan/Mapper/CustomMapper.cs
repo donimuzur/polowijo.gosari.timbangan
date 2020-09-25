@@ -27,6 +27,11 @@ namespace polowijo.gosari.timbangan
                 cfg.CreateMap<MstKonsumenModel, MstKonsumenDto>().ReverseMap();
                 cfg.CreateMap<MstKonsumenDto, MST_KONSUMEN>().ReverseMap();
 
+                cfg.CreateMap<TrnPengirimanModel, TrnPengirimanDto>().ReverseMap();
+                cfg.CreateMap<TrnPengirimanDto, TRN_PENGIRIMAN>().ReverseMap();
+
+                cfg.CreateMap<RptEkspedisiHarianModel, RptEkspedisiHarianDto>().ReverseMap();
+                cfg.CreateMap<RptEkspedisiHarianDto, SP_RealisasiHarian_Result>().ReverseMap();
 
             });
         }

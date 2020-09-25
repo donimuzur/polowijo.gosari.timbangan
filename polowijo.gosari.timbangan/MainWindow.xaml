@@ -40,7 +40,10 @@
     <Grid>
         <Grid Height="70" VerticalAlignment="Top" Background="#FF1F8AC7">
             <TextBlock x:Name="CaptionHeader" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial" FontSize="22">Aplikasi Timbangan</TextBlock>
-            <StackPanel VerticalAlignment="Center">
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="Back" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Center"  Click="Back_Click" Visibility="Collapsed">
+                    <materialdesign:PackIcon Kind="UndoVariant" Foreground="White" Height="50" Width="50" ></materialdesign:PackIcon>
+                </Button>
                 <materialdesign:PopupBox VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                     <StackPanel Width="150">
                         <Button Name="Help" Content="Help" Click="Help_Click"></Button>
@@ -102,7 +105,7 @@
                 </ListView>
             </StackPanel>
         </Grid>
-        <DockPanel x:Name="MainView" Margin="200,70,0,0" Background="{x:Null}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <DockPanel x:Name="MainView" Margin="200,70,0,0" Background="{x:Null}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.CanContentScroll="True">
 
         </DockPanel>
     </Grid>

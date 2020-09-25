@@ -152,7 +152,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NO_SURAT_JALAN" Type="nchar" MaxLength="100" />
+          <Property Name="NO_SURAT_JALAN" Type="nvarchar" MaxLength="100" />
           <Property Name="NO_RECORD" Type="bigint" />
           <Property Name="TANGGAL" Type="datetime" Nullable="false" />
           <Property Name="NO_POLISI" Type="nvarchar" MaxLength="50" />
@@ -908,8 +908,8 @@ FROM [dbo].[VIEW_TOTAL_KIRIM] AS [VIEW_TOTAL_KIRIM]</DefiningQuery>
           <FunctionImport Name="SP_RealisasiHarian" ReturnType="Collection(TIMBANGANModel.SP_RealisasiHarian_Result)">
           <Parameter Name="Date" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="SLIP_TIMBANGAN" EntityType="TIMBANGANModel.SLIP_TIMBANGAN" />
           <EntitySet Name="TRN_DO" EntityType="TIMBANGANModel.TRN_DO" />
+          <EntitySet Name="SLIP_TIMBANGAN" EntityType="TIMBANGANModel.SLIP_TIMBANGAN" />
         </EntityContainer>
         <EntityType Name="Login">
           <Key>
@@ -1626,33 +1626,6 @@ FROM [dbo].[VIEW_TOTAL_KIRIM] AS [VIEW_TOTAL_KIRIM]</DefiningQuery>
           <Property Type="Decimal" Name="TOTAL_TIMBANGAN" Nullable="true" Precision="38" Scale="2" />
           <Property Type="Int32" Name="TOTAL_TRUK" Nullable="true" />
         </ComplexType>
-        <EntityType Name="SLIP_TIMBANGAN">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NO_SURAT_JALAN" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="NO_RECORD" Type="Int64" />
-          <Property Name="TANGGAL" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="NO_POLISI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PERUSAHAAN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="SUPPLIER" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="PENGEMUDI" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="BERAT_MASUK" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="BERAT_KELUAR" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="BERAT_BRUTTO" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="BERAT_NETTO" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="JAM_MASUK" Type="DateTime" Precision="3" />
-          <Property Name="JAM_KELUAR" Type="DateTime" Precision="3" />
-          <Property Name="BAHAN_BAKU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="KETERANGAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="STATUS" Type="Byte" />
-          <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="MODIFIED_BY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
-          <Property Name="REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="TRN_DO">
           <Key>
             <PropertyRef Name="ID" />
@@ -1680,6 +1653,33 @@ FROM [dbo].[VIEW_TOTAL_KIRIM] AS [VIEW_TOTAL_KIRIM]</DefiningQuery>
           <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
           <Property Name="STATUS" Type="Int32" />
           <Property Name="REMARK" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SLIP_TIMBANGAN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NO_SURAT_JALAN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NO_RECORD" Type="Int64" />
+          <Property Name="TANGGAL" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NO_POLISI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PERUSAHAAN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SUPPLIER" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PENGEMUDI" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BERAT_MASUK" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BERAT_KELUAR" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BERAT_BRUTTO" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BERAT_NETTO" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="JAM_MASUK" Type="DateTime" Precision="3" />
+          <Property Name="JAM_KELUAR" Type="DateTime" Precision="3" />
+          <Property Name="BAHAN_BAKU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="KETERANGAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="Byte" />
+          <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MODIFIED_BY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2271,34 +2271,6 @@ FROM [dbo].[VIEW_TOTAL_KIRIM] AS [VIEW_TOTAL_KIRIM]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="SLIP_TIMBANGAN">
-            <EntityTypeMapping TypeName="TIMBANGANModel.SLIP_TIMBANGAN">
-              <MappingFragment StoreEntitySet="SLIP_TIMBANGAN">
-                <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
-                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
-                <ScalarProperty Name="MODIFIED_BY" ColumnName="MODIFIED_BY" />
-                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
-                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-                <ScalarProperty Name="KETERANGAN" ColumnName="KETERANGAN" />
-                <ScalarProperty Name="BAHAN_BAKU" ColumnName="BAHAN_BAKU" />
-                <ScalarProperty Name="JAM_KELUAR" ColumnName="JAM_KELUAR" />
-                <ScalarProperty Name="JAM_MASUK" ColumnName="JAM_MASUK" />
-                <ScalarProperty Name="BERAT_NETTO" ColumnName="BERAT_NETTO" />
-                <ScalarProperty Name="BERAT_BRUTTO" ColumnName="BERAT_BRUTTO" />
-                <ScalarProperty Name="BERAT_KELUAR" ColumnName="BERAT_KELUAR" />
-                <ScalarProperty Name="BERAT_MASUK" ColumnName="BERAT_MASUK" />
-                <ScalarProperty Name="PENGEMUDI" ColumnName="PENGEMUDI" />
-                <ScalarProperty Name="SUPPLIER" ColumnName="SUPPLIER" />
-                <ScalarProperty Name="PERUSAHAAN" ColumnName="PERUSAHAAN" />
-                <ScalarProperty Name="NO_POLISI" ColumnName="NO_POLISI" />
-                <ScalarProperty Name="TANGGAL" ColumnName="TANGGAL" />
-                <ScalarProperty Name="NO_RECORD" ColumnName="NO_RECORD" />
-                <ScalarProperty Name="NO_SURAT_JALAN" ColumnName="NO_SURAT_JALAN" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TRN_DO">
             <EntityTypeMapping TypeName="TIMBANGANModel.TRN_DO">
               <MappingFragment StoreEntitySet="TRN_DO">
@@ -2324,6 +2296,34 @@ FROM [dbo].[VIEW_TOTAL_KIRIM] AS [VIEW_TOTAL_KIRIM]</DefiningQuery>
                 <ScalarProperty Name="NO_DO" ColumnName="NO_DO" />
                 <ScalarProperty Name="NO_SPB" ColumnName="NO_SPB" />
                 <ScalarProperty Name="TANGGAL" ColumnName="TANGGAL" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SLIP_TIMBANGAN">
+            <EntityTypeMapping TypeName="TIMBANGANModel.SLIP_TIMBANGAN">
+              <MappingFragment StoreEntitySet="SLIP_TIMBANGAN">
+                <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="MODIFIED_BY" ColumnName="MODIFIED_BY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="KETERANGAN" ColumnName="KETERANGAN" />
+                <ScalarProperty Name="BAHAN_BAKU" ColumnName="BAHAN_BAKU" />
+                <ScalarProperty Name="JAM_KELUAR" ColumnName="JAM_KELUAR" />
+                <ScalarProperty Name="JAM_MASUK" ColumnName="JAM_MASUK" />
+                <ScalarProperty Name="BERAT_NETTO" ColumnName="BERAT_NETTO" />
+                <ScalarProperty Name="BERAT_BRUTTO" ColumnName="BERAT_BRUTTO" />
+                <ScalarProperty Name="BERAT_KELUAR" ColumnName="BERAT_KELUAR" />
+                <ScalarProperty Name="BERAT_MASUK" ColumnName="BERAT_MASUK" />
+                <ScalarProperty Name="PENGEMUDI" ColumnName="PENGEMUDI" />
+                <ScalarProperty Name="SUPPLIER" ColumnName="SUPPLIER" />
+                <ScalarProperty Name="PERUSAHAAN" ColumnName="PERUSAHAAN" />
+                <ScalarProperty Name="NO_POLISI" ColumnName="NO_POLISI" />
+                <ScalarProperty Name="TANGGAL" ColumnName="TANGGAL" />
+                <ScalarProperty Name="NO_RECORD" ColumnName="NO_RECORD" />
+                <ScalarProperty Name="NO_SURAT_JALAN" ColumnName="NO_SURAT_JALAN" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

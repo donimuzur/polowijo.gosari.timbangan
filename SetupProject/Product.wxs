@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define Apps_TargetDir=$(var.polowijo.gosari.timbangan.TargetDir)?>
+  <?define BusinessObject_TargetDir=$(var.polowijo.gosari.timbangan.dto.TargetDir)?>
+  <?define Core_TargetDir=$(var.polowijo.gosari.timbangan.core.TargetDir)?>
+  <?define Dal_TargetDir=$(var.polowijo.gosari.timbangan.dal.TargetDir)?>
+
+  <Product Id="08c44af2-58fd-46c4-b0eb-10ad61051ff1" Name="Polowijo TScale" Language="1033" Version="1.0.0.0" Manufacturer="IT Polowijo Gosari Group" UpgradeCode="71256375-f0e6-4cae-891e-ef60e56860a3">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <WixVariable Id="WixUIBannerBmp" Value="$(var.ProjectDir)\Images\top-abnner.png" />
+    <WixVariable Id="WixUIDialogBmp" Value="$(var.ProjectDir)\Images\banner.png" />
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)\Other\license.rtf" />
+    <Icon Id="icon.ico" SourceFile="$(var.ProjectDir)\ICON2.ico" />
+    <UI>
+      <UIRef Id="WixUI_InstallDir" />
+      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+    </UI>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Jalankan Aplikasi PG TScale" />
+
+    <Property Id="WixShellExecTarget" Value="[#pg_TScale.exe]" />
+    <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Feature Id="ProductFeature" Title="Polowijo Gosari TScale" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="ProductReports" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="UninstallShortcut" />
+      <ComponentRef Id="ApplicationShortcutDesktop" />
+    </Feature>
+	</Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="ApplicationProgramFilesFolder" Name="PG TScale" />
+        <Directory Id="INSTALLFOLDER" Name="PG TScale">
+          <Directory Id="ReportsFolder" Name="Reports">
+            <Component Id="EmptyComponent1" Guid="e29f1a9e-3ede-40d6-aba0-bfe451002ee3"
+    SharedDllRefCount="no" KeyPath="no" NeverOverwrite="no" Permanent="no" Transitive="no" Win64="no" Location="either">
+              <CreateFolder/>
+            </Component>
+          </Directory>
+          <Directory Id="LogErrorFolder" Name="Log Error">
+            <Component Id="EmptyComponent2" Guid="f8e1985d-d4db-4569-82ec-2e2e91a0ae5f"
+    SharedDllRefCount="no" KeyPath="no" NeverOverwrite="no" Permanent="no" Transitive="no" Win64="no" Location="either">
+              <CreateFolder/>
+            </Component>
+          </Directory>
+          <Directory Id="FilesavedFolder" Name="Files_Saved">
+            <Directory Id="SlipTimbangan" Name="Slip Timbangan">
+              <Component Id="EmptyComponent3" Guid="7d16cb9d-c4ca-4228-841d-36b7ffea4507"
+      SharedDllRefCount="no" KeyPath="no" NeverOverwrite="no" Permanent="no" Transitive="no" Win64="no" Location="either">
+                <CreateFolder/>
+              </Component>
+            </Directory>
+            <Directory Id="SuratJalan" Name="Surat Jalan">
+              <Component Id="EmptyComponent4" Guid="3d9f7272-63cd-4d5d-9b4a-2ffa5e6f6235"
+      SharedDllRefCount="no" KeyPath="no" NeverOverwrite="no" Permanent="no" Transitive="no" Win64="no" Location="either">
+                <CreateFolder/>
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="JsonFolder" Name="Json">
+            <Component Id="EmptyComponent5" Guid="7d162b9d-c4ca-4228-841d-36b7ffea4507"
+    SharedDllRefCount="no" KeyPath="no" NeverOverwrite="no" Permanent="no" Transitive="no" Win64="no" Location="either">
+              <CreateFolder/>
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="PG TScale" />
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop">
+      </Directory>
+    </Directory>
+
+    <Feature Id="EmptyComponent1" Title="testfolder" Level="1">
+      <ComponentRef Id="EmptyComponent1"/>
+    </Feature>
+    <Feature Id="EmptyComponent2" Title="testfolder" Level="1">
+      <ComponentRef Id="EmptyComponent2"/>
+    </Feature>
+    <Feature Id="EmptyComponent3" Title="testfolder" Level="1">
+      <ComponentRef Id="EmptyComponent3"/>
+    </Feature>
+    <Feature Id="EmptyComponent4" Title="testfolder" Level="1">
+      <ComponentRef Id="EmptyComponent4"/>
+    </Feature>
+    <Feature Id="EmptyComponent5" Title="testfolder" Level="1">
+      <ComponentRef Id="EmptyComponent5"/>
+    </Feature>
+  </Fragment>
+
+
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramFilesFolder">
+      <Component Id="UninstallShortcut" Guid="cecebb30-4c7a-4bbe-8ff4-bcd620b982d2">
+        <Shortcut Id="Uninstall"
+                  Name="Uninstall"
+                  Description="Uninstalls PG TScale"
+                  Target="[System32Folder]msiexec.exe"
+                  Arguments="/x [ProductCode]"
+                  Directory="INSTALLFOLDER"/>
+        <RemoveFolder Id="RemoveApplicationProgramFilesFolder" On="uninstall" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="9bd13330-6540-406f-a3a8-d7f7c69ae7f9">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="PG TScale"
+                  Description="Aplikasi PG TScale"
+                  Target="[INSTALLFOLDER]pg_TScale.exe"
+                  WorkingDirectory="INSTALLFOLDER" />
+        <Shortcut Id="UninstallProduct"
+                  Name="Uninstall PG TScale"
+                  Description="Uninstalls Aplikasi PG TScale"
+                  Target="[System32Folder]msiexec.exe"
+                  Arguments="/x [ProductCode]"
+                  WorkingDirectory="INSTALLFOLDER"/>
+        <RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\PGTscale" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="ApplicationShortcutDesktop" Guid="cde1e030-eb64-49a5-b7b8-400b379c2d1a">
+        <Shortcut Id="ApplicationDesktopShortcut" Name="PG TScale" Description="Aplikasi PG TScale" Target="[INSTALLFOLDER]pg_TScale.exe" WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\PGTscale" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+      <!-- <Component Id="ProductComponent"> -->
+      <!-- TODO: Insert files, registry keys, and other resources here. -->
+      <!-- </Component> -->
+      <Component Id="pg_TScale.exe" Guid="07e45341-388e-49d3-8c7a-280da9cf096e">
+        <File Id="pg_TScale.exe" Name="pg_TScale.exe" Source="$(var.Apps_TargetDir)polowijo.gosari.timbangan.exe" />
+      </Component>
+      <Component Id="pg_TScale.exe.config" Guid="bfa7bc27-f7b3-41e5-b82b-aebfb22947ef">
+        <File Id="pg_TScale.exe.config" Name="pg_TScale.exe.config" Source="$(var.Apps_TargetDir)polowijo.gosari.timbangan.exe.config" />
+      </Component>
+      <Component Id="CryptoHelpers.dll" Guid="1918d710-364c-465c-8d85-1fee27fa7405">
+        <File Id="CryptoHelpers.dll" Name="CryptoHelpers.dll" Source="$(var.Apps_TargetDir)CryptoHelpers.dll" />
+      </Component>
+      <Component Id="AutoMapper.dll" Guid="69425da5-041b-4468-b681-980a1d2a4e92">
+        <File Id="AutoMapper.dll" Name="AutoMapper.dll" Source="$(var.Apps_TargetDir)AutoMapper.dll" />
+      </Component>
+      <Component Id="CrystalDecisions.CrystalReports.Engine.dll" Guid="4d5f734f-82cd-444f-93af-56050408eed1">
+        <File Id="CrystalDecisions.CrystalReports.Engine.dll" Name="CrystalDecisions.CrystalReports.Engine.dll" Source="$(var.Apps_TargetDir)CrystalDecisions.CrystalReports.Engine.dll" />
+      </Component>
+      <Component Id="CrystalDecisions.ReportSource.dll" Guid="0d7574d4-3493-4892-9044-e9cff657d55c">
+        <File Id="CrystalDecisions.ReportSource.dll" Name="CrystalDecisions.ReportSource.dll" Source="$(var.Apps_TargetDir)CrystalDecisions.ReportSource.dll" />
+      </Component>
+      <Component Id="CrystalDecisions.Shared.dll" Guid="5ade6a85-c092-4ead-a1fb-bf25f4e25473">
+        <File Id="CrystalDecisions.Shared.dll" Name="CrystalDecisions.Shared.dll" Source="$(var.Apps_TargetDir)CrystalDecisions.Shared.dll" />
+      </Component>
+      <Component Id="EntityFramework.dll" Guid="f0818444-6a6a-4ec0-baec-a7ee0bf5e492">
+        <File Id="EntityFramework.dll" Name="EntityFramework.dll" Source="$(var.Apps_TargetDir)EntityFramework.dll" />
+      </Component>
+      <Component Id="License.dll" Guid="1c15ee07-327e-4c29-adee-78a97475ddbe">
+        <File Id="License.dll" Name="License.dll" Source="$(var.Apps_TargetDir)License.dll" />
+      </Component>
+
+      <Component Id="MaterialDesignColors.dll" Guid="1b16a1c0-fe79-46d7-ad42-87c6a47b9593">
+        <File Id="MaterialDesignColors.dll" Name="MaterialDesignColors.dll" Source="$(var.Apps_TargetDir)MaterialDesignColors.dll" />
+      </Component>
+      <Component Id="MaterialDesignThemes.Wpf.dll" Guid="c56319da-b0ff-4636-8ab5-c2510c095c57">
+        <File Id="MaterialDesignThemes.Wpf.dll" Name="MaterialDesignThemes.Wpf.dll" Source="$(var.Apps_TargetDir)MaterialDesignThemes.Wpf.dll" />
+      </Component>
+      <Component Id="Newtonsoft.Json.dll" Guid="22ff46f3-9d76-434e-b720-d50dfb297396">
+        <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Source="$(var.Apps_TargetDir)Newtonsoft.Json.dll" />
+      </Component>
+      <Component Id="stdole.dll" Guid="1902b3d6-d6d6-4c83-bd6e-a107ded96d0d">
+        <File Id="stdole.dll" Name="stdole.dll" Source="$(var.Apps_TargetDir)stdole.dll" />
+      </Component>
+      <Component Id="WpfControls.dll" Guid="09177c3f-e596-4451-b1c3-b58d823a5d7c">
+        <File Id="WpfControls.dll" Name="WpfControls.dll" Source="$(var.Apps_TargetDir)WpfControls.dll" />
+      </Component>
+      <!--AppDir End -->
+      
+      <!--Others-->
+      <Component Id="polowijo.gosari.timbangan.dto.dll" Guid="f58b5a8a-45ff-4828-bc1e-b59d30b9cf3c">
+        <File Id="polowijo.gosari.timbangan.dto.dll" Name="polowijo.gosari.timbangan.dto.dll" Source="$(var.BusinessObject_TargetDir)polowijo.gosari.timbangan.dto.dll" />
+      </Component>
+      <Component Id="polowijo.gosari.timbangan.core.dll" Guid="c6e042a0-ad40-4e7d-8ef6-a1ac9b1ed11a">
+        <File Id="polowijo.gosari.timbangan.core.dll" Name="polowijo.gosari.timbangan.core.dll" Source="$(var.Core_TargetDir)polowijo.gosari.timbangan.core.dll" />
+      </Component>
+      <Component Id="polowijo.gosari.timbangan.dal.dll" Guid="7a076caf-2bb5-4aa7-8402-0a3a11a16010">
+        <File Id="polowijo.gosari.timbangan.dal.dll" Name="polowijo.gosari.timbangan.dal.dll" Source="$(var.Dal_TargetDir)polowijo.gosari.timbangan.dal.dll" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+ 
+   <Fragment>
+    <ComponentGroup Id="ProductReports" Directory="ReportsFolder">
+      <Component Id="ReportSlipTimbangan.rpt" Guid="01335a84-8e4d-431c-8717-378f41bf5e53">
+        <File Id="ReportSlipTimbangan.rpt" Name="ReportSlipTimbangan.rpt" Source="$(var.Apps_TargetDir)\Reports\ReportSlipTimbangan.rpt" />
+      </Component>
+      <Component Id="ReportSuratJalan3_Layout.rpt" Guid="e6d9ddc5-b451-438e-bbdf-8592759dc74e">
+        <File Id="ReportSuratJalan3_Layout.rpt" Name="ReportSuratJalan3_Layout.rpt" Source="$(var.Apps_TargetDir)\Reports\ReportSuratJalan3_Layout.rpt" />
+      </Component>
+      <Component Id="ReportSuratJalan3.rpt" Guid="d83705cd-8a5c-4b5a-b094-f6702dcf1272">
+        <File Id="ReportSuratJalan3.rpt"  Name="ReportSuratJalan3.rpt" Source="$(var.Apps_TargetDir)\Reports\ReportSuratJalan3.rpt" />
+      </Component>
+      <Component Id="ReportRealisasiHarian.rpt" Guid="d83734cd-8a5c-4b5a-b094-f6702dcf1272">
+        <File Id="ReportRealisasiHarian.rpt"  Name="ReportRealisasiHarian.rpt" Source="$(var.Apps_TargetDir)\Reports\ReportRealisasiHarian.rpt" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="Json" Directory="JsonFolder">
+      <Component Id="JenisKendaraan.json" Guid="01335a84-8e2d-431c-8717-378f41bf5e53">
+        <File Id="JenisKendaraan.rpt" Name="JenisKendaraan.json" Source="$(var.Apps_TargetDir)\Json\provinsi.json" />
+      </Component>
+      <Component Id="provinsi.json" Guid="e6d9ddc5-b451-432e-bbdf-8592759dc74e">
+        <File Id="provinsi.json" Name="provinsi.json" Source="$(var.Apps_TargetDir)\Json\JenisKendaraan.json" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

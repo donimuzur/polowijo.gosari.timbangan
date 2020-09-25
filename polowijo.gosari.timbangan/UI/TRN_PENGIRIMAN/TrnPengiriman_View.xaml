@@ -7,12 +7,12 @@
              xmlns:local1 ="clr-namespace:polowijo.gosari.timbangan.core;assembly=polowijo.gosari.timbangan.core"
              xmlns:local2 ="clr-namespace:polowijo.gosari.timbangan.dto;assembly=polowijo.gosari.timbangan.dto"
              xmlns:wpf="http://wpfcontrols.com/"
-              xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
+             x:Name="TrnPengirimanView"
              d:DesignHeight="500" d:DesignWidth="780" Loaded="On_Load">
     <UserControl.Resources>
         <local:TrnSpbSuggestionProvider x:Key="TrnSpbSuggestionProvider" />
-
         <Style x:Key="GroupHeaderStyle" TargetType="{x:Type GroupItem}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -52,16 +52,16 @@
 
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5">
                     <StackPanel Orientation="Horizontal" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <TextBlock Width="75"  Foreground="Black" Text="Perusahaan" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        <TextBlock Width="75"  Foreground="Black" Text="No SPB" VerticalAlignment="Center" HorizontalAlignment="Center" />
                         <wpf:AutoCompleteTextBox VerticalAlignment="Top"
-                                 Height="30" Width="120" Margin="10,0,0,0"
+                                 Height="30" Width="150" Margin="10,0,0,0"
                                  Grid.Column="1"
                                  Watermark="Cari"
                                  IconPlacement="Left"
                                  IconVisibility="Visible"
                                  DisplayMember=""
-                                 Provider="{StaticResource ResourceKey=MstKonsumenSuggestionProvider}"
-                                 x:Name="Filter_Perusahaan">
+                                 Provider="{StaticResource ResourceKey=TrnSpbSuggestionProvider}"
+                                 x:Name="Filter_NoSpb">
                             <wpf:AutoCompleteTextBox.SelectedItem>
                                 <Binding Path="SelectedPath" Mode="TwoWay">
                                 </Binding>
@@ -72,23 +72,17 @@
                            FontSize="14" />
                             </wpf:AutoCompleteTextBox.LoadingContent>
                         </wpf:AutoCompleteTextBox>
-                        <!--<ComboBox x:Name="Filter_Perusahaan" SelectedIndex="0" Margin="10,0,0,0" Width="120"  Foreground="Black" KeyDown="Filter_KeyDown">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Converter={StaticResource MstKonsumenConverter}}"/>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>-->
                     </StackPanel>
-
-
+                    <StackPanel Orientation="Horizontal" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock Width="75"  Foreground="Black" Text="No DO" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="100" x:Name="Filter_NoDo" KeyDown="Filter_KeyDown" PreviewTextInput="Filter_NoDo_PreviewTextInput" Foreground="Black"/>
+                    </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4">
                     <StackPanel Orientation="Horizontal" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
                         <TextBlock Width="75" Foreground="Black" Text="Tangal Kirim" VerticalAlignment="Center" HorizontalAlignment="Center" />
                         <DatePicker x:Name="Filter_Tanggal"  Margin="10,0,0,0" Width="120" Foreground="Black" KeyDown="Filter_KeyDown" Focusable="False"></DatePicker>
                     </StackPanel>
-
                     <StackPanel Orientation="Horizontal" Margin="30,0,0,0" >
                         <Button Name="BtnFilter" FontSize="12" Width="60" Margin="5" Height="30" Click="BtnFilter_Click">Filter</Button>
                         <Button Name="BtnReset" FontSize="12" Width="60" Margin="5" Height="30" Click="BtnReset_Click">Reset</Button>
@@ -120,6 +114,7 @@
                 <Button x:Name="Tambah" FontSize="14" Width="90" Margin="5" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Tambah_Click">Tambah</Button>
                 <Button x:Name="Edit" FontSize="14" Width="90" Margin="5" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Edit_Click">Edit</Button>
                 <Button x:Name="Hapus" FontSize="14" Width="90" Margin="5" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Hapus_Click">Hapus</Button>
+                <Button x:Name="Print" FontSize="14" Width="90" Margin="5" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Print_Click">Print</Button>
             </StackPanel>
             <!--#endregion-->
         </Grid>

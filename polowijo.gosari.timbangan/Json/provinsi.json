@@ -1,0 +1,138 @@
+[
+  {
+    "id": "11",
+    "data": "ACEH"
+  },
+  {
+    "id": "12",
+    "data": "SUMATERA UTARA"
+  },
+  {
+    "id": "13",
+    "data": "SUMATERA BARAT"
+  },
+  {
+    "id": "14",
+    "data": "RIAU"
+  },
+  {
+    "id": "15",
+    "data": "JAMBI"
+  },
+  {
+    "id": "16",
+    "data": "SUMATERA SELATAN"
+  },
+  {
+    "id": "17",
+    "data": "BENGKULU"
+  },
+  {
+    "id": "18",
+    "data": "LAMPUNG"
+  },
+  {
+    "id": "19",
+    "data": "KEPULAUAN BANGKA BELITUNG"
+  },
+  {
+    "id": "21",
+    "data": "KEPULAUAN RIAU"
+  },
+  {
+    "id": "31",
+    "data": "DKI JAKARTA"
+  },
+  {
+    "id": "32",
+    "data": "JAWA BARAT"
+  },
+  {
+    "id": "33",
+    "data": "JAWA TENGAH"
+  },
+  {
+    "id": "34",
+    "data": "DI YOGYAKARTA"
+  },
+  {
+    "id": "35",
+    "data": "JAWA TIMUR"
+  },
+  {
+    "id": "36",
+    "data": "BANTEN"
+  },
+  {
+    "id": "51",
+    "data": "BALI"
+  },
+  {
+    "id": "52",
+    "data": "NUSA TENGGARA BARAT"
+  },
+  {
+    "id": "53",
+    "data": "NUSA TENGGARA TIMUR"
+  },
+  {
+    "id": "61",
+    "data": "KALIMANTAN BARAT"
+  },
+  {
+    "id": "62",
+    "data": "KALIMANTAN TENGAH"
+  },
+  {
+    "id": "63",
+    "data": "KALIMANTAN SELATAN"
+  },
+  {
+    "id": "64",
+    "data": "KALIMANTAN TIMUR"
+  },
+  {
+    "id": "65",
+    "data": "KALIMANTAN UTARA"
+  },
+  {
+    "id": "71",
+    "data": "SULAWESI UTARA"
+  },
+  {
+    "id": "72",
+    "data": "SULAWESI TENGAH"
+  },
+  {
+    "id": "73",
+    "data": "SULAWESI SELATAN"
+  },
+  {
+    "id": "74",
+    "data": "SULAWESI TENGGARA"
+  },
+  {
+    "id": "75",
+    "data": "GORONTALO"
+  },
+  {
+    "id": "76",
+    "data": "SULAWESI BARAT"
+  },
+  {
+    "id": "81",
+    "data": "MALUKU"
+  },
+  {
+    "id": "82",
+    "data": "MALUKU UTARA"
+  },
+  {
+    "id": "91",
+    "data": "PAPUA BARAT"
+  },
+  {
+    "id": "94",
+    "data": "PAPUA"
+  }
+]

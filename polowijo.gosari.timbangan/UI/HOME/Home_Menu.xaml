@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:polowijo.gosari.timbangan.UI.HOME"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
             mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="780" Loaded="On_Load">
     <Grid Background="White">
@@ -17,17 +18,17 @@
         </Grid.ColumnDefinitions>
         <DockPanel Grid.Row="0" Grid.Column="1">
             <Button x:Name="Btn_SlipTimbangan" Height="Auto" Margin="50" Background="#FF245E97" Click="Btn_SlipTimbangan_Click">
-                <StackPanel>
-                    <Image Source="/Resources/Image/kg.png" MaxHeight="100" MaxWidth="100"></Image>
-                    <Label FontFamily="Arial" Foreground="white" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center">Slip Timbangan (F3)</Label>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Margin="5,0,0,0" MaxHeight="100" MaxWidth="100" Height="70" Width="70" Kind="WeightKg" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock FontSize="24">Slip Timbangan</TextBlock>
                 </StackPanel>
             </Button>
         </DockPanel>
         <DockPanel Grid.Row="0" Grid.Column="0">
             <Button x:Name="Btn_Pengiriman" Height="Auto" Margin="50" Background="#FF245E97" Click="Btn_Pengiriman_Click">
-                <StackPanel>
-                    <Image Source="/Resources/Image/item.png" MaxHeight="100" MaxWidth="100"></Image>
-                    <TextBlock FontFamily="Arial" Foreground="White" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center">Pengiriman (F2)</TextBlock>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Margin="5,0,0,0" MaxHeight="100" MaxWidth="100" Height="70" Width="70" Kind="Truck" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock FontSize="24">Pengiriman</TextBlock>
                 </StackPanel>
             </Button>
         </DockPanel>

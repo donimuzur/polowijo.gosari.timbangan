@@ -86,6 +86,7 @@ namespace polowijo.gosari.timbangan.dal.Services
             try
             {
                 _trnPengirimanRepo.InsertOrUpdate(Mapper.Map<TRN_PENGIRIMAN>(Dto));
+                _uow.SaveChanges();
             }
             catch (Exception)
             {
@@ -136,13 +137,15 @@ namespace polowijo.gosari.timbangan.dal.Services
                 throw;
             }
         }
-        public void Delete(int id, string Remarks)
+        public void DeleteById(object Id, LoginDto Login)
         {
             try
             {
-                var Db = _trnPengirimanRepo.GetByID(id);
+                var Db = Mapper.Map<TrnPengirimanDto>(_trnPengirimanRepo.GetByID(Id));
                 Db.STATUS = (int)StatusDocument.Cancel;
-                _trnPengirimanRepo.InsertOrUpdate(Db, new Login() { USERNAME = "SYSTEM", USER_ID = "SYSTEM" }, MenuList.TrnPengiriman);
+                Db.MODIFIED_BY = Login.USERNAME;
+                Db.MODIFIED_DATE = DateTime.Now;
+                Save(Db, Login);
             }
             catch (Exception)
             {

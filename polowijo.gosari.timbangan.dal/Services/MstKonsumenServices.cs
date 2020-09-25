@@ -46,6 +46,7 @@ namespace polowijo.gosari.timbangan.dal.Services
             {
                 var db = Mapper.Map<MST_KONSUMEN>(model);
                 _mstKonsumenRepo.InsertOrUpdate(db);
+                _uow.SaveChanges(); 
             }
             catch (Exception)
             {
@@ -59,6 +60,7 @@ namespace polowijo.gosari.timbangan.dal.Services
                 var db = Mapper.Map<MST_KONSUMEN>(model);
                 var Login = Mapper.Map<Login>(LoginDto);
                 _mstKonsumenRepo.InsertOrUpdate(db, Login, MenuList.MasterKonsumen);
+                _uow.SaveChanges();
                 return Mapper.Map<MstKonsumenDto>(db);
             }
             catch (Exception)
@@ -82,7 +84,8 @@ namespace polowijo.gosari.timbangan.dal.Services
 
                 var db = Mapper.Map<MST_KONSUMEN>(model);
                 var Login = Mapper.Map<Login>(LoginDto);
-               _mstKonsumenRepo.InsertOrUpdate(db, Login, MenuList.MasterKonsumen);
+                _mstKonsumenRepo.InsertOrUpdate(db, Login, MenuList.MasterKonsumen);
+                _uow.SaveChanges();
             }
             catch (Exception)
             {

@@ -3,7 +3,9 @@ using polowijo.gosari.timbangan.core;
 using polowijo.gosari.timbangan.Model;
 using polowijo.gosari.timbangan.UI.HOME;
 using polowijo.gosari.timbangan.UI.LOGIN;
+using polowijo.gosari.timbangan.UI.REPORTS;
 using polowijo.gosari.timbangan.UI.SETTING;
+using polowijo.gosari.timbangan.UI.TRN_PENGIRIMAN;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -31,12 +33,14 @@ namespace polowijo.gosari.timbangan
     {
         private Login_Window _loginWindow;
         private Home_Menu _homeMenu;
+        private Reports_Menu _reportMenu;
         private Setting_View _settingView;
         public MainWindow()
         {
             CustomMapper Mapper = new CustomMapper();
             _loginWindow = new Login_Window();
             _homeMenu = new Home_Menu();
+            _reportMenu = new Reports_Menu();
             _settingView = new Setting_View();
             InitializeComponent();
             Init();
@@ -133,6 +137,7 @@ namespace polowijo.gosari.timbangan
             {
                 if (MainView != null)
                 {
+                    Back.Visibility = Visibility.Collapsed;
                     MainView.Children.Clear();
                     if (CheckConnection())
                     {
@@ -145,29 +150,69 @@ namespace polowijo.gosari.timbangan
             }
             else if (IdxSelected == 1)
             {
-                //MainView.Children.Clear();
-                //if (CheckConnection())
-                //{
-                //    _masterMenu = new MASTER_MENU();
-                //    MainView.Children.Add(_masterMenu);
-                //}
+                if (MainView != null)
+                {
+                    MainView.Children.Clear();
+                    if (CheckConnection())
+                    {
+                        _reportMenu = new Reports_Menu();
+                        MainView.Children.Add(_reportMenu);
+
+                        CaptionHeader.Text = "Reports";
+                    }
+                }
+                Back.Visibility = Visibility.Collapsed;
             }
             else if (IdxSelected == 2)
             {
                 MainView.Children.Clear();
                 _settingView = new Setting_View();
                 MainView.Children.Add(_settingView);
+                Back.Visibility = Visibility.Collapsed;
 
             }
             else if (IdxSelected == 3)
             {
-               
+                Back.Visibility = Visibility.Collapsed;
             }
         }
 
         private void SignOut_Click(object sender, RoutedEventArgs e)
         {
             CheckSession();
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (MainView != null)
+                {
+                    var Main = (UserControl)MainView.Children[0];
+                    if (Main.Name == "TrnPengirimanView" || Main.Name == "SlipTimbanganView")
+                    {
+                        MainView.Children.Clear();
+                        _homeMenu = new Home_Menu();
+                        MainView.Children.Add(_homeMenu);
+
+                        CaptionHeader.Text = "Menu";
+                    }
+                    else if (Main.Name == "RptRealisasi" || Main.Name == "RptRekap")
+                    {
+                        MainView.Children.Clear();
+                        _reportMenu = new Reports_Menu();
+                        MainView.Children.Add(_reportMenu);
+
+                        CaptionHeader.Text = "Report Menu";
+                    }
+                }
+                Back.Visibility = Visibility.Collapsed;
+            }
+            catch (Exception exp)
+            {
+                LogError.WriteError(exp);
+                MessageBox.Show(Constans.SubmitMessage.Error, Constans.SubmitMessageTittle.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

@@ -88,30 +88,18 @@
                                     </TextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
-                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Perusahaan"></TextBlock>
-                                    <wpf:AutoCompleteTextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="200" x:Name="txtPerusahaan"
-                                                             MinHeight="25"
-                                                             DisplayMember=""
-                                                             Provider="{StaticResource ResourceKey=MstKonsumenSuggestionProvider}">
-                                        <wpf:AutoCompleteTextBox.SelectedItem>
-                                            <Binding Path="SelectedPath" Mode="TwoWay">
-                                            </Binding>
-                                        </wpf:AutoCompleteTextBox.SelectedItem>
-                                        <wpf:AutoCompleteTextBox.LoadingContent>
-                                        <TextBlock Text="Loading..."
-                                            Margin="5"
-                                            FontSize="14" /> 
-                                        </wpf:AutoCompleteTextBox.LoadingContent>
-                                    </wpf:AutoCompleteTextBox>
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="No Polisi"></TextBlock>
+                                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="200" x:Name="txtPolisi" KeyDown="Form_KeyDown">
+                                    </TextBox>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,0,0" >
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Nama Supplier"></TextBlock>
-                                    <wpf:AutoCompleteTextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="200" x:Name="txtNamaSupplier"
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Perusahaan"></TextBlock>
+                                    <wpf:AutoCompleteTextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="200" x:Name="txtPerusahaan"
                                                              MinHeight="25"
                                                              DisplayMember=""
-                                                             Provider="{StaticResource ResourceKey=MstSupplierSuggestionProvider}">
+                                                             Provider="{StaticResource ResourceKey=MstKonsumenSuggestionProvider}" KeyDown="Form_KeyDown">
                                         <wpf:AutoCompleteTextBox.SelectedItem>
                                             <Binding Path="SelectedPath" Mode="TwoWay">
                                             </Binding>
@@ -124,32 +112,45 @@
                                     </wpf:AutoCompleteTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
-                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="No Polisi"></TextBlock>
-                                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="200" x:Name="txtPolisi">
-                                    </TextBox>
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Nama Supplier"></TextBlock>
+                                    <wpf:AutoCompleteTextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="200" x:Name="txtNamaSupplier"
+                                                             MinHeight="25"
+                                                             DisplayMember=""
+                                                             Provider="{StaticResource ResourceKey=MstSupplierSuggestionProvider}" KeyDown="Form_KeyDown">
+                                        <wpf:AutoCompleteTextBox.SelectedItem>
+                                            <Binding Path="SelectedPath" Mode="TwoWay">
+                                            </Binding>
+                                        </wpf:AutoCompleteTextBox.SelectedItem>
+                                        <wpf:AutoCompleteTextBox.LoadingContent>
+                                            <TextBlock Text="Loading..."
+                                            Margin="5"
+                                            FontSize="14" />
+                                        </wpf:AutoCompleteTextBox.LoadingContent>
+                                    </wpf:AutoCompleteTextBox>
                                 </StackPanel>
+                                
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,0,0" >
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Nama Pengemudi"></TextBlock>
-                                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="200" x:Name="txtPengemudi">
+                                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="200" x:Name="txtPengemudi" KeyDown="Form_KeyDown">
                                     </TextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
                                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Nama Barang"></TextBlock>
-                                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="200" x:Name="txtNamaBarang">
+                                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="200" x:Name="txtNamaBarang" KeyDown="Form_KeyDown">
                                     </TextBox>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,0,0" >
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Jam Masuk"></TextBlock>
-                                    <materialDesign:TimePicker Is24Hours="True"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="200" x:Name="txtJamMasuk">
+                                    <materialDesign:TimePicker Is24Hours="True"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="200" x:Name="txtJamMasuk" PreviewKeyDown="Form_KeyDown" KeyDown="Form_KeyDown">
                                     </materialDesign:TimePicker>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
                                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Jam Keluar"></TextBlock>
-                                    <materialDesign:TimePicker Is24Hours="True"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="200" x:Name="txtJamKeluar">
+                                    <materialDesign:TimePicker Is24Hours="True"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="200" x:Name="txtJamKeluar" PreviewKeyDown="Form_KeyDown" KeyDown="Form_KeyDown">
                                     </materialDesign:TimePicker>
                                 </StackPanel>
                             </StackPanel>
@@ -167,13 +168,13 @@
                             <StackPanel Orientation="Horizontal" Margin="10,0,0,0" >
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Berat Masuk"></TextBlock>
-                                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="170" x:Name="txtBeratMasuk" PreviewTextInput="txtBeratMasuk_PreviewTextInput">
+                                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="170" x:Name="txtBeratMasuk" PreviewTextInput="txtBeratMasuk_PreviewTextInput" KeyDown="Form_KeyDown">
                                     </TextBox>
                                     <Label Width="30" VerticalAlignment="Center" HorizontalContentAlignment="Right" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold">Kg</Label>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
                                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Berat Keluar"></TextBlock>
-                                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="170" x:Name="txtBeratKeluar" PreviewTextInput="txtBeratKeluar_PreviewTextInput">
+                                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="170" x:Name="txtBeratKeluar" PreviewTextInput="txtBeratKeluar_PreviewTextInput" KeyDown="Form_KeyDown" LostFocus="txtBeratKeluar_LostFocus">
                                     </TextBox>
                                     <Label Width="30" VerticalAlignment="Center" HorizontalContentAlignment="Right" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold">Kg</Label>
                                 </StackPanel>
@@ -181,13 +182,13 @@
                             <StackPanel Orientation="Horizontal" Margin="10,0,0,0" >
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Berat Brutto"></TextBlock>
-                                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="170" x:Name="txtBeratBrutto" PreviewTextInput="txtBeratBrutto_PreviewTextInput">
+                                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="170" x:Name="txtBeratBrutto" PreviewTextInput="txtBeratBrutto_PreviewTextInput" KeyDown="Form_KeyDown">
                                     </TextBox>
                                     <Label Width="30" VerticalAlignment="Center" HorizontalContentAlignment="Right" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold">Kg</Label>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
                                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Berat Netto"></TextBlock>
-                                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="170" x:Name="txtBeratNetto" PreviewTextInput="txtBeratNetto_PreviewTextInput">
+                                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" Width="170" x:Name="txtBeratNetto" PreviewTextInput="txtBeratNetto_PreviewTextInput" KeyDown="Form_KeyDown">
                                     </TextBox>
                                     <Label Width="30" VerticalAlignment="Center" HorizontalContentAlignment="Right" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold">Kg</Label>
                                 </StackPanel>

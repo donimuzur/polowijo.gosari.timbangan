@@ -26,7 +26,6 @@ namespace polowijo.gosari.timbangan.UI.SETTING
     public partial class Setting_View : UserControl
     {
         string Server = "";
-        string Port = "";
         string UserId = "";
         string Password = "";
         string metadata = "";

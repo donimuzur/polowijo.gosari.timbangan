@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CrystalDecisions.CrystalReports.Engine;
 using polowijo.gosari.timbangan.core;
 using polowijo.gosari.timbangan.dal.IServices;
 using polowijo.gosari.timbangan.dal.Services;
@@ -7,6 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Configuration;
+using System.Data.EntityClient;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -139,9 +143,13 @@ namespace polowijo.gosari.timbangan.UI.SLIP_TIMBANGAN
             
             ID.Header = "ID";
             NO_SURAT_JALAN.Header = "Surat Jalan";
-            NO_RECORD.Header = "No Record";
+            NO_SURAT_JALAN.MaxWidth = 200;
+            NO_RECORD.Header = "Records";
+            NO_RECORD.MaxWidth = 100;
             TANGGAL.Header = "Tanggal";
+            TANGGAL.MaxWidth = 100;
             NO_POLISI.Header = "No Polisi";
+            NO_POLISI.MaxWidth = 100;
             PERUSAHAAN.Header = "Perusahaan";
             SUPPLIER.Header = "Supplier";
             PENGEMUDI.Header = "Pengemudi";
@@ -156,12 +164,14 @@ namespace polowijo.gosari.timbangan.UI.SLIP_TIMBANGAN
             STATUS.Header = "Status";
             
             Dgv_Home.Columns.Add(TANGGAL);
-            Dgv_Home.Columns.Add(NO_SURAT_JALAN);
             Dgv_Home.Columns.Add(NO_RECORD);
             Dgv_Home.Columns.Add(PERUSAHAAN);
             Dgv_Home.Columns.Add(SUPPLIER);
             Dgv_Home.Columns.Add(NO_POLISI);
             Dgv_Home.Columns.Add(BAHAN_BAKU);
+            Dgv_Home.Columns.Add(BERAT_MASUK);
+            Dgv_Home.Columns.Add(BERAT_KELUAR);
+            Dgv_Home.Columns.Add(BERAT_BRUTTO);
 
             //TIDAK DI TAMPILKAN
             Dgv_Home.Columns.Add(ID);
@@ -176,6 +186,7 @@ namespace polowijo.gosari.timbangan.UI.SLIP_TIMBANGAN
         }
         private void PopulateData()
         {
+            _trnSlipTimbanganServices = new TrnSlipTimbanganServices();
             var Data = _trnSlipTimbanganServices.GetAllActive();
             _data = CollectionViewSource.GetDefaultView(Data);
             _data.Filter = new Predicate<object>(FilterCandidates);
@@ -207,7 +218,12 @@ namespace polowijo.gosari.timbangan.UI.SLIP_TIMBANGAN
 
             if (!string.IsNullOrEmpty(Filter_Perusahaan.Text))
             {
-                AddFilterAndRefresh("PERUSAHAAN", candidate => Filter_Perusahaan.Text.ToUpper() == candidate.PERUSAHAAN.ToUpper());
+                AddFilterAndRefresh("PERUSAHAAN", candidate =>  candidate.PERUSAHAAN.ToUpper().Contains(Filter_Perusahaan.Text.ToUpper()));
+            }
+
+            if (!string.IsNullOrEmpty(Filter_Nopol.Text))
+            {
+                AddFilterAndRefresh("NO_POLISI", candidate => candidate.NO_POLISI.ToUpper().Contains(Filter_Nopol.Text.ToUpper()));
             }
         }
 
@@ -215,6 +231,7 @@ namespace polowijo.gosari.timbangan.UI.SLIP_TIMBANGAN
         {
             Filter_Perusahaan.Text = "";
             Filter_Tanggal.Text = "";
+            Filter_Nopol.Text = "";
 
             filters.Clear();
             _data.Refresh();
@@ -290,6 +307,65 @@ namespace polowijo.gosari.timbangan.UI.SLIP_TIMBANGAN
             if (result == true)
             {
                 PopulateData();
+            }
+        }
+        private void Print_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var idx = (TrnSlipTimbanganDto)Dgv_Home.SelectedItem;
+
+                if (idx == null)
+                {
+                    MessageBox.Show("Tidak ada data yg dipilih", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                using (new WaitCursor())
+                {
+                    var connectString = ConfigurationManager.ConnectionStrings["TIMBANGANEntities"].ConnectionString;
+                    var entityStringBuilder = new EntityConnectionStringBuilder(connectString);
+                    SqlConnectionStringBuilder SqlConnection = new SqlConnectionStringBuilder(entityStringBuilder.ProviderConnectionString);
+                    var PrinterName = ConfigurationManager.AppSettings["PrinterName"];
+
+                    ReportDocument cryRpt = new ReportDocument();
+
+                    // this will be in a temp directory.
+                    string SystemPath = System.AppDomain.CurrentDomain.BaseDirectory;
+                    //once you have the path you get the directory with:
+                    var directory = System.IO.Path.GetDirectoryName(SystemPath);
+
+
+                    cryRpt.Load(SystemPath + "\\Reports\\SlipTimbangan.rpt");
+                    cryRpt.SetDatabaseLogon(SqlConnection.UserID, SqlConnection.Password, SqlConnection.DataSource, SqlConnection.InitialCatalog);
+                    cryRpt.SetParameterValue("id", idx.ID);
+
+                    //cryRpt.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.WordForWindows, fullPath);
+
+                    System.Drawing.Printing.PrinterSettings printersettings = new System.Drawing.Printing.PrinterSettings();
+                    System.Drawing.Printing.PageSettings pageSettings = new System.Drawing.Printing.PageSettings();
+                    var paper = new System.Drawing.Printing.PaperSize("Custom", 300, 600);
+
+                    printersettings.DefaultPageSettings.Landscape = false;
+                    printersettings.DefaultPageSettings.PaperSize = paper;
+
+                    pageSettings.PaperSize = paper;
+                    pageSettings.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 0);
+                    pageSettings.Landscape = false;
+
+                    var nama = System.Drawing.Printing.PrinterSettings.InstalledPrinters;
+
+                    printersettings.PrinterName = PrinterName;
+
+                    cryRpt.PrintToPrinter(printersettings, pageSettings, false);
+                }
+
+                MessageBox.Show("File Printing", Constans.SubmitMessageTittle.Sukses, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception exp)
+            {
+                LogError.WriteError(exp);
+                MessageBox.Show(Constans.SubmitMessage.Error, Constans.SubmitMessageTittle.Error, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -58,8 +58,8 @@ namespace polowijo.gosari.timbangan.dal
         public DbSet<TRN_SURAT_PERMINTAAN_BAHAN_BAKU_DETAILS> TRN_SURAT_PERMINTAAN_BAHAN_BAKU_DETAILS { get; set; }
         public DbSet<WORKING_HOURS> WORKING_HOURS { get; set; }
         public DbSet<VIEW_TOTAL_KIRIM> VIEW_TOTAL_KIRIM { get; set; }
-        public DbSet<SLIP_TIMBANGAN> SLIP_TIMBANGAN { get; set; }
         public DbSet<TRN_DO> TRN_DO { get; set; }
+        public DbSet<SLIP_TIMBANGAN> SLIP_TIMBANGAN { get; set; }
     
         public virtual ObjectResult<SP_GetRptOutstanding_Result> SP_GetRptOutstanding()
         {

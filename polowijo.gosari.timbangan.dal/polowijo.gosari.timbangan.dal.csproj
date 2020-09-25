@@ -73,7 +73,11 @@
     </Compile>
     <Compile Include="IServices\IGenericRepository.cs" />
     <Compile Include="IServices\ILoginServices.cs" />
+    <Compile Include="IServices\IMstBarangJadiServices.cs" />
+    <Compile Include="IServices\IMstKemasanServices.cs" />
     <Compile Include="IServices\IMstKonsumenServices.cs" />
+    <Compile Include="IServices\IRptRealisasiHarianServices.cs" />
+    <Compile Include="IServices\ITrnDoServices.cs" />
     <Compile Include="IServices\ITrnPengirimanServices.cs" />
     <Compile Include="IServices\ITrnSlipTimbanganServices.cs" />
     <Compile Include="IServices\IUnitOfWork.cs" />
@@ -103,9 +107,13 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LoginServices.cs" />
+    <Compile Include="Services\MstBarangJadiServices.cs" />
+    <Compile Include="Services\MstKemasanServices.cs" />
     <Compile Include="Services\MstKonsumenServices.cs" />
+    <Compile Include="Services\RptRealisasiHarianServices.cs" />
     <Compile Include="Services\SqlGenericRepository.cs" />
     <Compile Include="Services\SqlUnitOfWork.cs" />
+    <Compile Include="Services\TrnDoServices.cs" />
     <Compile Include="Services\TrnPengirimanServices.cs" />
     <Compile Include="Services\TrnSlipTimbanganServices.cs" />
     <Compile Include="SETTING.cs">

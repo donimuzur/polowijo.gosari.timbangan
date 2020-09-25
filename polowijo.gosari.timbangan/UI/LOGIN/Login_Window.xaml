@@ -11,9 +11,9 @@
             <Label Content="Login" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
             <Separator></Separator>
             <Label Content="Username" Foreground="White"/>
-            <TextBox Name="txtUsername" Background="#545d6a" Foreground="White" FontSize="18"/>
+            <TextBox Name="txtUsername"  KeyDown="Filter_KeyDown" Background="#545d6a" Foreground="White" FontSize="18"/>
             <Label Content="Password" Foreground="White"/>
-            <PasswordBox Name="txtPassword" Background="#545d6a" Foreground="White" FontSize="18"/>
+            <PasswordBox Name="txtPassword"  KeyDown="Filter_KeyDown" Background="#545d6a" Foreground="White" FontSize="18"/>
             <Label Name="lblError" Content="" Foreground="Red" Height="30px"/>
             <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal">
                 <Button Name="btnSubmit" Click="btnSubmit_Click" Content="Masuk" Margin="20 10" Background="#545d6a" Foreground="White" FontSize="18"/>

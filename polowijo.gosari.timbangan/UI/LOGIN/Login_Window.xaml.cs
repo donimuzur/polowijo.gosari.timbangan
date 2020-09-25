@@ -33,9 +33,16 @@ namespace polowijo.gosari.timbangan.UI.LOGIN
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
             _loginServices = new LoginServices();
             InitializeComponent();
+            txtUsername.Focus();
             Mouse.OverrideCursor =null;
         }
-
+        private void Filter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnSubmit_Click(sender, e);
+            }
+        }
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
@@ -55,7 +62,10 @@ namespace polowijo.gosari.timbangan.UI.LOGIN
                     BaseController.CurrentUser.EMAIL = GetData.EMAIL;
                     BaseController.CurrentUser.LAST_ONLINE = GetData.LAST_ONLINE;
                     BaseController.CurrentUser.POSITION = GetData.POSITION;
-                    BaseController.CurrentUser.ROLE_ID = (int)GetData.ROLE_ID;
+                    if(GetData.ROLE_ID != null)
+                    {
+                        BaseController.CurrentUser.ROLE_ID = (int)GetData.ROLE_ID;
+                    }                   
 
                     _loginServices.SetLastOnline(BaseController.CurrentUser.USER_ID);
 

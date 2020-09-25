@@ -7,13 +7,13 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("polowijo.gosari.timbangan")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("TScale")]
+[assembly: AssemblyDescription("Aplikasi TScale timbangan dan Surat Jalan")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("polowijo.gosari.timbangan")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("PT Polowijo Gosari Group")]
+[assembly: AssemblyProduct("PT Polowijo Gosari Group")]
+[assembly: AssemblyCopyright("Copyright ©  2020 PT Polowijo Gosari Group")]
+[assembly: AssemblyTrademark("IT Polowijo")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -53,3 +53,6 @@ using System.Windows;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: Guid("510ccfca-69e0-4f51-bae0-78c1c1c7cebf")]
+[assembly: NeutralResourcesLanguage("en")]
+
